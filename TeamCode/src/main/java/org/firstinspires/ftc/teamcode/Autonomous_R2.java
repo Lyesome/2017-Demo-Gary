@@ -12,7 +12,7 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
  */
 
 @Autonomous(name="Indiana Gary - Red Right", group="Linear Opmode")
-//@Disabled
+@Disabled
 
 public class Autonomous_R2 extends LinearOpMode {
     // Declare OpMode members.

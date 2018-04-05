@@ -6,13 +6,14 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
 /**
  * Created by Lyesome on 2018-01-03.
  */
 
 @Autonomous(name="Indiana Gary - Drive Scale Test", group="Tests")
-//@Disabled
+@Disabled
 
 public class Autonomous_DriveScaleTest extends LinearOpMode {
     // Declare OpMode members.

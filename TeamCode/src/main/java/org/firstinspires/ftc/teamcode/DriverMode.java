@@ -5,6 +5,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.hardware.Servo;
 
@@ -40,14 +41,19 @@ public class DriverMode extends LinearOpMode {
         //Provide warning for drivers not to hit play until initializing is complete.
         telemetry.addData("Status", "Initializing. Please Wait...");
         telemetry.update();
-        //indianaGary.InitTele(hardwareMap);
 
         motorDriveL = hardwareMap.dcMotor.get("motorDriveL");
+        motorDriveL.setDirection(DcMotorSimple.Direction.FORWARD);
         motorDriveR = hardwareMap.dcMotor.get("motorDriveR");
+        motorDriveR.setDirection(DcMotorSimple.Direction.REVERSE);
         motorShooterL = hardwareMap.dcMotor.get("motorShooterL");
+        motorShooterL.setDirection(DcMotorSimple.Direction.FORWARD);
         motorShooterR = hardwareMap.dcMotor.get("motorShooterR");
+        motorShooterR.setDirection(DcMotorSimple.Direction.REVERSE);
         servoFlap = hardwareMap.servo.get("servoFlap");
+        servoFlap.setDirection(Servo.Direction.FORWARD);
         servoLift = hardwareMap.servo.get("servoLift");
+        servoLift.setDirection(Servo.Direction.FORWARD);
         //for manual driving encoder is not needed in the drive motors.
 
         //Set toggle initial states
@@ -55,11 +61,13 @@ public class DriverMode extends LinearOpMode {
         double FLAP_OPEN = 1.0;
         double FLAP_CLOSE = 0;
         long FLAP_WAIT = 3000;
+        double SHOOTER_POWER = 0.2;
 
         double LIFT_RAISE = 1.0;
         double LIFT_LOWER = 0;
         long LIFT_WAIT = 2000;
         servoFlap.setPosition(FLAP_CLOSE);
+        servoLift.setPosition(LIFT_LOWER);
         //tell drivers that initializing is now complete
         telemetry.setAutoClear(true);
         telemetry.addData("Status", "Initialized");
@@ -87,8 +95,8 @@ public class DriverMode extends LinearOpMode {
                 servoFlap.setPosition(FLAP_CLOSE);
             }
             if (gamepad1.right_trigger < 0.5 ){
-                motorShooterR.setPower(1);
-                motorShooterL.setPower(1);
+                motorShooterR.setPower(SHOOTER_POWER);
+                motorShooterL.setPower(SHOOTER_POWER);
                 servoLift.setPosition(LIFT_RAISE);
                 sleep(LIFT_WAIT);
                 servoLift.setPosition(LIFT_LOWER);

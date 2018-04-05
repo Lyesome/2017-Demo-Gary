@@ -3,13 +3,14 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
 /**
  * Created by Lyesome on 2018-01-03.
  */
 
 @Autonomous(name="Indiana Gary - Blank", group="Linear Opmode")
-//@Disabled
+@Disabled
 
 public class Autonomous_Blank extends LinearOpMode {
     // Declare OpMode members.
